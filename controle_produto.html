@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Produtos</title>
+    <link rel="icon" href="img/codigo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <div class="container mt-5">
+        <div class="card p-4" style="background: #D6DADD">
+            <div style="text-align: end;">
+                <button type="button" style=" font-weight: 500;" onclick="window.location.href='index.html'" onclick="adicionar()" class="btn btn-warning btn tooltipd"><i class="fa-solid fa-house"></i> Início</button>
+                <button type="button" style=" font-weight: 500;" onclick="window.location.href='controle_produto.html'" class="btn btn-primary btn tooltipd"><i class="fa-solid fa-bag-shopping"></i> Produtos</button>
+                <button type="button" style=" font-weight: 500;" onclick="window.location.href='conversor_moedas.html'" class="btn btn-success btn tooltipd"><i class="fa-solid fa-money-bill"></i> Moedas</button>
+                <button type="button" style=" font-weight: 500;" onclick="window.location.href='editor_texto.html'" class="btn btn-info btn tooltipd"><i class="fa-solid fa-text-height"></i> Editor</button>
+            </div>
+            <h4>Controle de Produtos</h4>
+            <div class="mb-3">
+                <button type="button" style="float:right; font-weight: 500;" onclick="adicionar()" class="btn btn-primary btn tooltipd"><i class="fa-solid fa-plus"></i> Adicionar</button>
+            </div>
+
+            <div class="card p-3 table-responsive-md">
+                <table class="table">
+                    <thead id="listagem">
+                        <tr>
+                            <th>Nome</th>
+                            <th class="text-center">Preço</th>
+                            <th class="text-center">Categoria</th>
+                            <th class="text-center">Marca</th>
+                            <th class="text-center">Funções</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listagem_produtos">
+                        <!-- Onde será inserido as linhas -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- MODAL CADASTRO PRODUTO -->
+    <div id="modal_cadastro" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cadastro de Produto</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <div class="form-group">
+                                <label>Nome do Produto <span style="color: red;">*</span></label>
+                                <input type="text" id="nome_produto" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="form-group">
+                                <label>Marca </label>
+                                <input type="text" id="marca" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="form-group">
+                                <label>Preço</label>
+                                <input type="text" id="preco" class="form-control moeda">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-2">
+                            <div class="form-group">
+                                <label>Categoria</label>
+                                <select id="categoria" class="form-control">
+                                    <option value="">-- Selecione --</option>
+                                    <option value="Eletrônico">Eletrônico</option>
+                                    <option value="Vestuário">Vestuário</option>
+                                    <option value="Alimentação">Alimentação</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a type="button" id="btn_add" class="btn btn-success" href="javascript:;"><i class="fa-solid fa-check"></i> Salvar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js" type="text/javascript"></script>
+
+</body>
+</html>
